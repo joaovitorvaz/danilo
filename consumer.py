@@ -48,7 +48,5 @@ if __name__ == "__main__":
 
     # Close connections.
     basic_message_receiver.close()
-     # Close connections.
-    basic_message_receiver.close()
 
     
