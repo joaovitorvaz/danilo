@@ -2,6 +2,15 @@ from basicClient import BasicPikaClient
 
 class BasicMessageReceiver(BasicPikaClient):
 
+    def get_message(self, queue):
+        method_frame, header_frame, body = self.channel.basic_get(queue)
+        if method_frame:
+            print(method_frame, header_frame, body)
+            self.channel.basic_ack(method_frame.delivery_tag)
+            return method_frame, header_frame, body
+        else:
+            print('No message returned')
+
     def consume_messages(self, queue):
             def callback(ch, method, properties, body):
                 print(" [x] Received %r" % body)
@@ -32,8 +41,14 @@ if __name__ == "__main__":
     # Consume multiple messages in an event loop.
     basic_message_receiver.consume_messages("hello world queue")
 
+   
+
+    # Consume the message that was sent.
+    basic_message_receiver.get_message("hello world queue")
+
     # Close connections.
     basic_message_receiver.close()
-
+     # Close connections.
+    basic_message_receiver.close()
 
     
