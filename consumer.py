@@ -21,10 +21,10 @@ if __name__ == "__main__":
     # Create Basic Message Receiver which creates a connection
     # and channel for consuming messages.
     basic_message_receiver = BasicMessageReceiver(
-        "<broker-id>",
-        "<username>",
-        "<password>",
-        "<region>"
+        "b-3d1a8932-19e2-41b9-9e6a-6f742d19df1c",
+        "joaodanilo",
+        "14S744w8!14S744w8!",
+        "us-east-1"
     )
 
     # Consume the message that was sent.
